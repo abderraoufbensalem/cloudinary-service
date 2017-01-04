@@ -37,7 +37,6 @@ type Service struct {
 	uploadURI     *url.URL
 	uploadResType ResourceType
 }
-
 type Resource struct {
 	PublicId     string `json:"public_id"`
 	Version      string `json:"version"`
