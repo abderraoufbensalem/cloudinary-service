@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/ricardo-ch/platform-poc/app/sample-cloudinary/cloudinary"
+	"cloudinary-service/cloudinary"
 )
 
 type imageResource struct {

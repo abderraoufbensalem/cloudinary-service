@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/ricardo-ch/platform-poc/app/sample-cloudinary/handlers"
+	"cloudinary-service/handlers"
 
 	opentracing "github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
