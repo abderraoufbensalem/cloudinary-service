@@ -1,7 +1,9 @@
 package cloudinary
 
 import (
+	"flag"
 	"log"
+	"os"
 	"sync"
 )
 
@@ -18,7 +20,7 @@ var cloudName = flag.String("schemaRegistryAPI", os.Getenv("Cloudinary_Cloud_Nam
 func GetService() *Service {
 	once.Do(func() {
 		var err error
-		instance, err = Dial("cloudinary://" + accountKey + ":" + secretKey "@" + cloudName)
+		instance, err = Dial("cloudinary://" + accountKey + ":" + secretKey + "@" + cloudName)
 		if err != nil {
 			log.Fatal(err)
 		}
