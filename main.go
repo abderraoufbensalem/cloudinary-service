@@ -32,6 +32,7 @@ func main() {
 	routes := mux.NewRouter()
 	routes.HandleFunc("/image", prometheus.InstrumentHandlerFunc("post_image", handlers.PostImageHandler)).Methods("POST")
 	routes.HandleFunc("/image/", prometheus.InstrumentHandlerFunc("get_image", handlers.GetImageHandler)).Methods("GET")
+	routes.HandleFunc("/cat/{id}", prometheus.InstrumentHandlerFunc("get_cat", handlers.GetCatHandler)).Methods("GET")
 	routes.HandleFunc("/metrics", prometheus.Handler().ServeHTTP)
 	prometheus.InstrumentHandler("routes", routes)
 	http.Handle("/", routes)
