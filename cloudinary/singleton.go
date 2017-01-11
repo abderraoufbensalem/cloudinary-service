@@ -18,9 +18,11 @@ var secretKey = flag.String("schemaRegistryAPI", os.Getenv("Cloudinary_Secret_Ke
 var cloudName = flag.String("schemaRegistryAPI", os.Getenv("Cloudinary_Cloud_Name"), "The schema registry API")
 
 func GetService() *Service {
+	flag.Parse()
+	endpoint := "cloudinary://" + *accountKey + ":" + *secretKey + "@" + *cloudName
 	once.Do(func() {
 		var err error
-		instance, err = Dial("cloudinary://" + accountKey + ":" + secretKey + "@" + cloudName)
+		instance, err = Dial(endpoint)
 		if err != nil {
 			log.Fatal(err)
 		}
